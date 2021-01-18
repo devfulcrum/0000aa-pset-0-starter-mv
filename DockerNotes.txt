@@ -1,0 +1,40 @@
+D:\Users\muthu\PycharmProjects\PythonProjects\0000aa-pset-0-starter-master>docker build -t 0000aa-pset-0-starter-master-app -f Dockerfile .
+[+] Building 0.1s (10/10) FINISHED
+ => [internal] load build definition from Dockerfile                                                               0.0s
+ => => transferring dockerfile: 32B                                                                                0.0s
+ => [internal] load .dockerignore                                                                                  0.0s
+ => => transferring context: 2B                                                                                    0.0s
+ => [internal] load metadata for docker.io/library/python:3.7                                                      0.0s
+ => [1/5] FROM docker.io/library/python:3.7                                                                        0.0s
+ => [internal] load build context                                                                                  0.0s
+ => => transferring context: 1.15kB                                                                                0.0s
+ => CACHED [2/5] RUN pip install pipenv                                                                            0.0s
+ => CACHED [3/5] WORKDIR /app                                                                                      0.0s
+ => CACHED [4/5] COPY . .                                                                                          0.0s
+ => CACHED [5/5] RUN pipenv install --deploy --ignore-pipfile --dev                                                0.0s
+ => exporting to image                                                                                             0.0s
+ => => exporting layers                                                                                            0.0s
+ => => writing image sha256:652e276658dc58b21312675e68e49f7ddae7db1c8fe09bd42cbe5e20cef8755d                       0.0s
+ => => naming to docker.io/library/0000aa-pset-0-starter-master-app                                                0.0s
+
+D:\Users\muthu\PycharmProjects\PythonProjects\0000aa-pset-0-starter-master>docker run -it --name 0000aa-pset-0-starter-master-app 0000aa-pset-0-starter-master-app "pytest test_pset.py"
+================================================= test session starts ==================================================
+platform linux -- Python 3.7.9, pytest-6.0.1, py-1.9.0, pluggy-0.13.1
+rootdir: /app, configfile: pytest.ini
+plugins: cov-2.10.1
+collected 7 items
+
+test_pset.py .......                                                                                             [100%]
+
+----------- coverage: platform linux, python 3.7.9-final-0 -----------
+Name           Stmts   Miss Branch BrPart  Cover
+------------------------------------------------
+fibonacci.py      29      6     10      1    77%
+pyramid.py        17      4      6      1    78%
+------------------------------------------------
+TOTAL             46     10     16      2    77%
+
+
+================================================== 7 passed in 1.07s ===================================================
+
+D:\Users\muthu\PycharmProjects\PythonProjects\0000aa-pset-0-starter-master>
