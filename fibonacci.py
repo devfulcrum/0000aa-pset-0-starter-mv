@@ -1,7 +1,4 @@
 #!/usr/bin/env python3
-import math
-from functools import lru_cache
-
 
 def last_8(some_int):
     """Return the last 8 digits of an int
@@ -19,28 +16,13 @@ def last_8(some_int):
 
 
 def optimized_fibonacci(f):
-    return iterative_fib(f)
-    # return memoized_fib(f)
-    # phi = (1 + math.sqrt(5)) / 2
-    # return round(pow(phi, f) / math.sqrt(5))
-    # raise NotImplementedError()
-
-
-@lru_cache(100)
-def memoized_fib(n):
-    if n < 2:
-        return n
-    else:
-        return memoized_fib(n-1) + memoized_fib(n-2)
-
-
-def iterative_fib(n):
-    if n == 0:
+    if f == 0:
         return 0
     previous, current = (0, 1)
-    for i in range(2, n+1):
+    for i in range(2, f+1):
         previous, current = (current, previous + current)
     return current
+    # raise NotImplementedError()
 
 
 class SummableSequence(object):
